@@ -1,0 +1,17 @@
+<section class="experience-section">
+    <h2 class="section-title">Where I've Worked</h2>
+
+    <div class="timeline">
+        <div class="timeline-item" *ngFor="let job of jobs">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <span class="timeline-date">{{ job.dates }}</span>
+                <h3>{{ job.title }}</h3>
+                <h4>{{ job.company }} | {{ job.location }}</h4>
+                <ul>
+                    <li *ngFor="let item of job.highlights">{{ item }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
