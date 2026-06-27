@@ -1,1 +1,18 @@
-<p>navbar works!</p>
+<nav class="glass-nav">
+    <div class="logo">Shuvam<span>Thakur</span></div>
+
+    <!-- Mobile Hamburger Toggle -->
+    <button class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen" aria-label="Toggle navigation menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <ul class="nav-links" [class.active]="isMenuOpen">
+        <li><a href="#hero" (click)="closeMenu()">Home</a></li>
+        <li><a href="#about" (click)="closeMenu()">About</a></li>
+        <li><a href="#experience" (click)="closeMenu()">Experience</a></li>
+        <li><a href="#projects" (click)="closeMenu()">Projects</a></li>
+        <li><a href="#skills" (click)="closeMenu()">Skills</a></li>
+    </ul>
+</nav>

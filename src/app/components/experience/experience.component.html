@@ -7,10 +7,40 @@
             <div class="timeline-content">
                 <span class="timeline-date">{{ job.dates }}</span>
                 <h3>{{ job.title }}</h3>
-                <h4>{{ job.company }} | {{ job.location }}</h4>
-                <ul>
-                    <li *ngFor="let item of job.highlights">{{ item }}</li>
-                </ul>
+                <h4>{{ job.company }}<span *ngIf="job.location"> &bull; {{ job.location }}</span></h4>
+                
+                <p class="job-intro" *ngIf="job.intro">{{ job.intro }}</p>
+
+                <!-- For roles with subsections (like Macquarie L2) -->
+                <div class="sections-container" *ngIf="job.sections">
+                    <details class="details-card" *ngFor="let sec of job.sections">
+                        <summary>
+                            <span class="summary-text">{{ sec.title }}</span>
+                            <span class="summary-icon"></span>
+                        </summary>
+                        <div class="details-content">
+                            <ul>
+                                <li *ngFor="let bullet of sec.bullets">{{ bullet }}</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
+                <!-- For roles with a single list of bullets -->
+                <div class="bullets-container" *ngIf="job.bullets">
+                    <details class="details-card">
+                        <summary>
+                            <span class="summary-text">Key Contributions</span>
+                            <span class="summary-icon"></span>
+                        </summary>
+                        <div class="details-content">
+                            <ul>
+                                <li *ngFor="let bullet of job.bullets">{{ bullet }}</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+
             </div>
         </div>
     </div>

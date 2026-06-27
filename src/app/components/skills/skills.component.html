@@ -1,1 +1,54 @@
-<p>skills works!</p>
+<section id="skills" class="skills-section">
+    <h2 class="section-title">Technical Arsenal</h2>
+
+    <div class="skills-grid">
+        <div class="skills-category" *ngFor="let category of skillCategories">
+            <h3>{{ category.title }}</h3>
+            <div class="badge-container">
+                <span class="skill-badge" *ngFor="let skill of category.skills">{{ skill }}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Certifications & Achievements -->
+    <div class="achievements-box">
+        <h3 class="achievements-title">Honors & Certifications</h3>
+        <div class="achievements-grid">
+            <div class="achievement-card">
+                <div class="badge-icon">🏆</div>
+                <div class="achievement-text">
+                    <h4>Global Rank 6</h4>
+                    <p>International Mars Hackathon (2020)</p>
+                </div>
+            </div>
+            <div class="achievement-card">
+                <div class="badge-icon">☁️</div>
+                <div class="achievement-text">
+                    <h4>Google Cloud Certified</h4>
+                    <p>Data Science & Machine Learning Track</p>
+                </div>
+            </div>
+            <div class="achievement-card">
+                <div class="badge-icon">🚀</div>
+                <div class="achievement-text">
+                    <h4>Second Runner-Up</h4>
+                    <p>Indian Rover Design Challenge (2019)</p>
+                </div>
+            </div>
+            <div class="achievement-card">
+                <div class="badge-icon">🥇</div>
+                <div class="achievement-text">
+                    <h4>Gold Recipient</h4>
+                    <p>Mahasangram Debate Competition (2017)</p>
+                </div>
+            </div>
+            <div class="achievement-card">
+                <div class="badge-icon">🎖️</div>
+                <div class="achievement-text">
+                    <h4>Bronze Recipient</h4>
+                    <p>Duke of Edinburgh Award (2017)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

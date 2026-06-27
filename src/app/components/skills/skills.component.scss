@@ -1,0 +1,100 @@
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.skills-category {
+    h3 {
+        font-size: 1.25rem;
+        color: var(--primary);
+        margin-bottom: 1.2rem;
+        border-left: 4px solid var(--accent);
+        padding-left: 12px;
+    }
+}
+
+.badge-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.skill-badge {
+    background: #f1f5f9;
+    color: var(--primary);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: var(--transition);
+    border: 1px solid #e2e8f0;
+    cursor: default;
+
+    &:hover {
+        background: var(--secondary);
+        color: #fff;
+        transform: scale(1.05);
+        box-shadow: 0 4px 10px rgba(30, 58, 138, 0.2);
+    }
+}
+
+.achievements-box {
+    margin-top: 5rem;
+}
+
+.achievements-title {
+    font-size: 1.25rem;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--accent);
+    padding-left: 12px;
+    font-weight: 700;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.achievement-card {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    background: var(--card);
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+        border-color: rgba(37, 99, 235, 0.15);
+    }
+
+    .badge-icon {
+        font-size: 1.8rem;
+    }
+
+    .achievement-text {
+        h4 {
+            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+
+        p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+    }
+}

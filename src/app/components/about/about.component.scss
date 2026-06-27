@@ -1,0 +1,54 @@
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.bio-text {
+    p {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        color: var(--text-main);
+        line-height: 1.8;
+    }
+}
+
+.interest-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+
+    .interest-card {
+        background: #fff;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        transition: var(--transition);
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h4 {
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+    }
+}
