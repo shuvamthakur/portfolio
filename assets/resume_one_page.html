@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shuvam Thakur - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: #f1f5f9;
+            line-height: 1.35;
+            padding: 2rem 0;
+        }
+
+        .resume-container {
+            background: #fff;
+            width: 210mm;
+            height: 297mm; /* Enforced exact A4 height */
+            margin: 0 auto;
+            padding: 0.8cm 1.1cm;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden; /* Prevent visual overflow leaks */
+        }
+
+        /* Floating Print Button for Browser View */
+        .print-btn {
+            position: fixed;
+            top: 2rem;
+            right: calc(50% - 105mm - 90px);
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+            transition: all 0.2s ease;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .print-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        /* Header Style */
+        header {
+            text-align: center;
+            margin-bottom: 0.45rem;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.75px;
+            margin-bottom: 0.1rem;
+        }
+
+        .subtitle {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.35rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .contact-info a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent);
+        }
+
+        /* Section Layout */
+        section {
+            margin-bottom: 0.45rem;
+        }
+
+        .section-title {
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            border-bottom: 1.5px solid var(--primary);
+            padding-bottom: 2px;
+            margin-bottom: 0.3rem;
+        }
+
+        /* Education */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .edu-item h4 {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .edu-item p {
+            font-size: 0.72rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .date-right {
+            text-align: right;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.78rem;
+        }
+
+        /* Job Block */
+        .job-block {
+            margin-bottom: 0.35rem;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.15rem;
+        }
+
+        .job-title {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .job-title span {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .job-date {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        /* Bullet lists */
+        ul {
+            list-style: none;
+        }
+
+        li {
+            position: relative;
+            padding-left: 10px;
+            font-size: 0.72rem;
+            color: var(--text-main);
+            margin-bottom: 0.05rem;
+            line-height: 1.35;
+        }
+
+        li::before {
+            content: "•";
+            position: absolute;
+            left: 2px;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Projects */
+        .project-item {
+            margin-bottom: 0.4rem;
+        }
+
+        .project-title {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.1rem;
+        }
+
+        .project-title span {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-left: 6px;
+        }
+
+        /* Skills Layout */
+        .skills-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .skills-row {
+            font-size: 0.72rem;
+            line-height: 1.35;
+        }
+
+        .skills-row strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Achievements Layout */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px 1rem;
+        }
+
+        .achievements-grid div {
+            font-size: 0.72rem;
+            line-height: 1.35;
+        }
+
+        .achievements-grid strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Printing adjustments */
+        @media print {
+            body {
+                background: #fff;
+                margin: 0;
+                padding: 0;
+            }
+
+            .resume-container {
+                width: 210mm;
+                height: 297mm;
+                padding: 0.8cm 1.1cm; /* Keeps margins as internal padding */
+                margin: 0;
+                box-shadow: none;
+                page-break-after: avoid;
+                page-break-inside: avoid;
+            }
+
+            .print-btn {
+                display: none;
+            }
+        }
+
+        @page {
+            size: A4;
+            margin: 0; /* Let resume-container margins control page space */
+        }
+    </style>
+</head>
+<body>
+
+    <button class="print-btn" onclick="window.print()">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+            <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2.5 2.5 0 0 0 0 5h6a2.5 2.5 0 0 0 0-5H5z"/>
+        </svg>
+        Print / PDF
+    </button>
+
+    <div class="resume-container">
+        <header>
+            <h1>Shuvam Thakur</h1>
+            <div class="subtitle">Software Engineer</div>
+            <div class="contact-info">
+                <span>🌐 <a href="https://shuvamthakur.github.io/portfolio/" target="_blank">shuvamthakur.github.io/portfolio</a></span>
+                <span>📧 <a href="mailto:shuvamthakur@outlook.com">shuvamthakur@outlook.com</a></span>
+                <span>📱 +61-411374757 (Mobile)</span>
+                <span>📱 +91-9625398814 (WhatsApp)</span>
+            </div>
+        </header>
+
+        <section>
+            <div class="section-title">Profile Summary</div>
+            <p style="font-size: 0.78rem; text-align: justify; line-height: 1.45;">
+                Software engineer with a proven track record in a global investment-banking technology team, specializing in full-stack development, distributed systems, and large-scale data engineering. Experienced in managing platform systems that calculate counterparty credit risks. Currently pursuing postgraduate studies to deepen expertise in Artificial Intelligence, machine learning architectures, and predictive analytics.
+            </p>
+        </section>
+
+        <section>
+            <div class="section-title">Education</div>
+            <div class="edu-grid">
+                <div class="edu-item">
+                    <h4>University of Technology Sydney (UTS)</h4>
+                    <p>Master of Artificial Intelligence | <em>July 2026 – Present</em></p>
+                </div>
+                <div class="edu-item" style="text-align: right;">
+                    <h4>Delhi Technological University (DTU)</h4>
+                    <p>Bachelor of Technology in Computer Engineering (GPA: 8.23) | <em>2019 – 2023</em></p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-title">Professional Experience</div>
+
+            <div class="job-block">
+                <div class="job-header">
+                    <div class="job-title">Macquarie Global Services &bull; <span>Senior Associate (L2 Software Engineer)</span></div>
+                    <div class="job-date">April 2025 – June 2026</div>
+                </div>
+                <ul>
+                    <li><strong>Technical Leadership</strong>: Recognised SME for the platform; resolved a portfolio of 245 critical tickets (defects, incidents) and authored 36+ internal Confluence pages.</li>
+                    <li><strong>Data Upgrades</strong>: Led the technical execution of a division-wide data-model upgrade, orchestrating 8 deployment bundles across 100+ database tables.</li>
+                    <li><strong>Full-Stack SDE</strong>: Logged 720+ commits to 6+ Spring Boot microservices and maintained a microfrontend ecosystem comprising 12 Angular microfrontends.</li>
+                    <li><strong>Professional Reference</strong>: Karan Juneja (Manager and Credit Risk Tech Lead, Macquarie Group) | +61 412 036 110</li>
+                </ul>
+            </div>
+
+            <div class="job-block">
+                <div class="job-header">
+                    <div class="job-title">Macquarie Global Services &bull; <span>Associate Engineer</span></div>
+                    <div class="job-date">Nov 2023 – March 2025</div>
+                </div>
+                <ul>
+                    <li>Engineered enterprise RESTful Spring Boot APIs and Angular dashboards, enforcing 90%+ JUnit code coverage.</li>
+                    <li>Owned Bamboo CI/CD pipelines, application vulnerability checks (Fortify, Black Duck), and Cyberark certifications.</li>
+                </ul>
+            </div>
+
+            <div class="job-block">
+                <div class="job-header">
+                    <div class="job-title">Macquarie Global Services &bull; <span>Full-Stack SDE Intern</span></div>
+                    <div class="job-date">Jan 2023 – Oct 2023</div>
+                </div>
+                <ul>
+                    <li>Collaborated on Spring Boot financial modules and designed responsive Angular dashboards for credit-risk visualizations.</li>
+                </ul>
+            </div>
+
+            <div class="job-block">
+                <div class="job-header">
+                    <div class="job-title">Airtel Payments Bank &bull; <span>Backend Engineering Intern</span></div>
+                    <div class="job-date">June 2022 – Aug 2022</div>
+                </div>
+                <ul>
+                    <li>Engineered and optimized backend Java Spring Boot microservices for secure customer banking and payment routing API integrations.</li>
+                </ul>
+            </div>
+
+            <div class="job-block" style="margin-bottom: 0;">
+                <div class="job-header">
+                    <div class="job-title">Other Experiences</div>
+                    <div class="job-date">2017 – 2021</div>
+                </div>
+                <ul>
+                    <li><strong>LIS (2021)</strong>: Deployed automated Python web-scraping scripts and cleaned datasets for NLP model training.</li>
+                    <li><strong>Rato Bangala Kitab (2018)</strong>: Directed multimedia poem recitals and managed design assets for online channels.</li>
+                    <li><strong>Sofos Softwares (2017)</strong>: Assist in frontend web development (HTML, CSS, JavaScript) for responsive pages.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-title">Selected Projects</div>
+
+            <div class="project-item">
+                <div class="project-title">Early Detection of Alzheimer's Disease via Speech Analysis <span>Deep Learning / NLP</span></div>
+                <ul>
+                    <li>Engineered a hybrid CNN + BiLSTM network with max-pooling to extract linguistic features from speech transcripts, achieving a state-of-the-art 92% accuracy and F1-macro of 0.92 for early-stage AD detection in Hindi.</li>
+                </ul>
+            </div>
+
+            <div class="project-item" style="margin-bottom: 0;">
+                <div class="project-title">Multimodal Transformer Adaptation <span>Computer Vision / Social Computing</span></div>
+                <ul>
+                    <li>Designed task-specific multimodal classifiers utilizing CLIP-ViT backbones specifically for text-embedded images, implementing a Co-Attention Ensemble model for Hate Speech detection (F1 score: 0.7929).</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-title">Technical Skills</div>
+            <div class="skills-container">
+                <div class="skills-row">
+                    <strong>Languages & Frameworks</strong>: Java (Spring Boot, Hibernate), Python, TypeScript, Angular, SQL (T-SQL, PL/SQL), Bash, Scala (Spark), HTML/CSS
+                </div>
+                <div class="skills-row">
+                    <strong>Backend, Cloud & DBs</strong>: RESTful APIs, Kafka, Apache Spark, Airflow, AWS (RDS, S3, EKS), Docker, Bamboo CI/CD, SQL Server, Sybase, Postgres, MongoDB
+                </div>
+                <div class="skills-row">
+                    <strong>ML & Observability</strong>: TensorFlow, PyTorch, HuggingFace, NLP, Computer Vision, scikit-learn, Grafana, Splunk, Postman
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-bottom: 0;">
+            <div class="section-title">Achievements & Awards</div>
+            <div class="achievements-grid">
+                <div>&bull; <strong>Google Cloud Certified:</strong> Data Science & ML Track</div>
+                <div>&bull; <strong>Global Rank 6:</strong> International Mars Hackathon (2020)</div>
+                <div>&bull; <strong>Duke of Edinburgh:</strong> Bronze Award Recipient (2017)</div>
+                <div>&bull; <strong>Second Runner-Up:</strong> Indian Rover Challenge (2019)</div>
+                <div>&bull; <strong>Gold Medalist:</strong> Mahasangram Debate Competition (2017)</div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
