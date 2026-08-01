@@ -44,6 +44,17 @@ footer {
             background: var(--accent);
             transform: translateY(-3px);
         }
+
+        &.location-btn {
+            border-color: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.03);
+            cursor: default;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.03);
+                transform: none;
+            }
+        }
     }
 }
 
