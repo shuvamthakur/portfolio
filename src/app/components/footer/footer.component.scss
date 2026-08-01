@@ -45,7 +45,7 @@ footer {
             transform: translateY(-3px);
         }
 
-        &.location-btn {
+        &.location-btn, &.availability-btn {
             border-color: rgba(255, 255, 255, 0.25);
             background: rgba(255, 255, 255, 0.03);
             cursor: default;
